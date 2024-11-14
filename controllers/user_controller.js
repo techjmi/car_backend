@@ -69,7 +69,6 @@ const signIn = async (req, res) => {
       res
         .cookie("token_asp", token, {
           httpOnly: true,  // Prevents access to the cookie via JavaScript
-          secure: false,   // Set to true if using HTTP
         })
         .json({ message: "Signin successful", token, user: rest });
     } catch (error) {
