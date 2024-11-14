@@ -1,7 +1,7 @@
 const express= require('express')
 const { post_Car, get_car, get_userCar, update_car, delete_car, details } = require('../controllers/car_controller')
 const verifyToken = require('../utility/verifyuser')
-console.log(verifyToken)
+// console.log(verifyToken)
 const router= express.Router()
 router.post('/create',verifyToken, post_Car)
 router.get('/car_list',get_car)

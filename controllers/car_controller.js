@@ -3,9 +3,9 @@ const Car = require("../model/cars_schema");
 // Post new car
 const post_Car = async (req, res) => {
     const { title, description, images, tags } = req.body;
-    console.log('the user from post car', req.user);
+    // console.log('the user from post car', req.user);
     const userId = req.user.id;
-    console.log('the user id is', userId);
+    // console.log('the user id is', userId);
 
     try {
         if (!title || !description) {
@@ -44,7 +44,7 @@ const get_car = async (req, res) => {
 // Get cars of a specific user
 const get_userCar = async (req, res) => {
     const userId = req.user.id;
-    console.log(userId, 'from get all users cars');
+    // console.log(userId, 'from get all users cars');
 
     try {
         const userCars = await Car.find({ user: userId });
