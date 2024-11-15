@@ -14,11 +14,12 @@ const PORT = process.env.PORT || 5000;
 // Middleware setup
 app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(cors({
     credentials: true,
-    // origin: "https://car-list-j0gy.onrender.com"
+    origin: "https://car-list-j0gy.onrender.com"
     // origin:"http://localhost:5173"
-    origin:true
+    // origin:true
 }));
 
 // Connect to the database

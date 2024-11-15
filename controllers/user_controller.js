@@ -61,8 +61,9 @@ const signIn = async (req, res) => {
       .cookie("asp_token", token, {
         httpOnly: true, 
         secure: false, 
-        sameSite: "lax", 
+        sameSite: "none", 
         secure: process.env.NODE_ENV === 'production',
+        path     : '/',
       })
       .json({ message: "Signin successful", token, user: rest });
 
