@@ -16,7 +16,9 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: "https://car-list-j0gy.onrender.com"
+    // origin: "https://car-list-j0gy.onrender.com"
+    // origin:"http://localhost:5173"
+    origin:true
 }));
 
 // Connect to the database
