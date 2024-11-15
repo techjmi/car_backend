@@ -3,11 +3,13 @@ const jwt = require('jsonwebtoken');
 const verifyToken = (req, res, next) => {
     try {
         // Extract token from cookies
-        const token = req.cookies.token_asp;
+        const token = req.cookies.asp_token;
+
         // If no token is found, return a 403 Forbidden error
         if (!token) {
             return res.status(403).json({ message: "You are not allowed to do this" });
         }
+
         // Verify the token with the JWT secret
         jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
             // If token verification fails, return a 401 Unauthorized error
@@ -16,7 +18,6 @@ const verifyToken = (req, res, next) => {
             }
             // Attach the user information to the request object
             req.user = user;
-
             // Proceed to the next middleware or route handler
             next();
         });
