@@ -62,6 +62,7 @@ const signIn = async (req, res) => {
         httpOnly: true, 
         secure: false, 
         sameSite: "lax", 
+        secure: process.env.NODE_ENV === 'production',
       })
       .json({ message: "Signin successful", token, user: rest });
 
